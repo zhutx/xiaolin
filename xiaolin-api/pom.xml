@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.xiaolin</groupId>
+	<artifactId>xiaolin-api</artifactId>
+	<version>${project.version}</version>
+	<packaging>jar</packaging>
+
+	<name>xiaolin-api</name>
+	<description></description>
+
+	<parent>
+		<groupId>com.xiaolin</groupId>
+		<artifactId>xiaolin-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<project.version>0.0.1-SNAPSHOT</project.version>
+		<fish.common.version>0.0.1-SNAPSHOT</fish.common.version>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>develop-nexus</id>
+			<url>http://39.104.59.181:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>develop-nexus-snapshots</id>
+			<name>local private nexus snapshots</name>
+			<url>http://39.104.59.181:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.xiaolin</groupId>
+			<artifactId>fish-common</artifactId>
+			<version>${fish.common.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<package.environment>dev</package.environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<package.environment>test</package.environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>show</id>
+			<properties>
+				<package.environment>show</package.environment>
+				<project.version>0.0.1</project.version>
+				<fish.common.version>0.0.1</fish.common.version>
+			</properties>
+		</profile>
+	</profiles>
+
+
+</project>
