@@ -35,13 +35,13 @@
 
     <distributionManagement>
         <repository>
-            <id>moredian-nexus-release</id>
-            <url>http://mvn.moredian.com:8000/nexus/content/repositories/releases/</url>
+            <id>develop-nexus</id>
+            <url>http://39.104.120.128:8081/nexus/content/repositories/releases/</url>
         </repository>
         <snapshotRepository>
-            <id>moredian-nexus-snapshots</id>
+            <id>develop-nexus-snapshots</id>
             <name>local private nexus snapshots</name>
-            <url>http://mvn.moredian.com:8000/nexus/content/repositories/snapshots/</url>
+            <url>http://39.104.120.128:8081/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
   
